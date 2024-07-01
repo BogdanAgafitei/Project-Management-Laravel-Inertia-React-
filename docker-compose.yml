@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+    db-inertia:
+        image: mysql:5.7
+        container_name: inertia-db
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: inertia
+            MYSQL_ROOT_PASSWORD: inertia
+            MYSQL_PASSWORD: inertia
+            MYSQL_USER: inertia
+        volumes:
+            - inertiadbdata:/var/lib/mysql
+        ports:
+            - "3329:3306"
+
+volumes:
+    inertiadbdata:
+        driver: local
